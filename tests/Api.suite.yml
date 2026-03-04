@@ -1,8 +1,9 @@
 actor: ApiTester
-suite_namespace: App\Tests\Api
 modules:
-    enabled:
-        - REST:
-            url: http://serviceapp/api/v1/
-            depends: PhpBrowser
-            part: Json
+  enabled:
+    - REST:
+        url: http://php:8000   # o la URL de tu contenedor Symfony
+    - Asserts
+    - Symfony:
+        app_path: 'src'
+        environment: 'test'
