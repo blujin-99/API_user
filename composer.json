@@ -15,6 +15,10 @@
         "symfony/yaml": "7.4.*"
     },
     "require-dev": {
+        "codeception/codeception": "^5.3",
+        "codeception/module-asserts": "^3.3",
+        "codeception/module-rest": "^3.4",
+        "codeception/module-symfony": "^3.8"
     },
     "config": {
         "allow-plugins": {
