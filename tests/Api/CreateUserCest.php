@@ -16,13 +16,15 @@ final class CreateUserCest
     // All `public` methods will be executed as tests.
     public function tryToTest(ApiTester $I): void
     {
-        $I->sendPost('/api/users', [
-            'email' => 'dev@test.com',
-            'password' => '123456'
-        ]);
+        $I->sendPost('/api/users', json_encode([
+            'nombre'    => 'Juan',
+            'apellido'  => 'Pérez',
+            'correo'    => 'dev@test.com',
+            'contrasena' => '123456',
+        ]));
 
         $I->seeResponseCodeIs(201);
         $I->seeResponseIsJson();
-        $I->seeResponseContains('"email":"dev@test.com"');
+        $I->seeResponseContains('"correo":"dev@test.com"');
     }
 }

@@ -1,9 +1,9 @@
 actor: ApiTester
 modules:
-  enabled:
-    - REST:
-        url: http://php:8000   # o la URL de tu contenedor Symfony
-    - Asserts
-    - Symfony:
-        app_path: 'src'
-        environment: 'test'
+    enabled:
+        - PhpBrowser:
+            url: http://apache
+        - REST:
+            url: http://apache
+            depends: PhpBrowser
+        - Asserts
