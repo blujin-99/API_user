@@ -14,14 +14,14 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/api/users')]
 class UserController extends AbstractController
 {
-    public function __construct(private readonly UserRepository $userRepository) {}
-
     #[Route('', methods: ['GET'])]
     public function index(): JsonResponse
     {
-        $users = array_map(fn($u) => $u->toArray(), $this->userRepository->findAll());
+        $users = $this->userRepository->findAll();
+        dd($users); // AGREGAR ESTO
         return $this->json($users);
     }
+
 
     #[Route('', methods: ['POST'])]
     public function create(Request $request): JsonResponse
